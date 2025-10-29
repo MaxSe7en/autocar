@@ -1,30 +1,38 @@
-// src/components/auth/SignUpForm.jsx
 import { useState } from 'preact/hooks';
 import Input from '../ui/Input';
 import Button from '../ui/Button';
 import AccountTypeSelector from './AccountTypeSelector';
 
 // Icon components
-const UserIcon = ({ className }) => (
+const UserIcon = ({ className }: { className: string }) => (
   <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
   </svg>
 );
 
-const MailIcon = ({ className }) => (
+const MailIcon = ({ className }: { className: string }) => (
   <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
   </svg>
 );
 
-const LockIcon = ({ className }) => (
+const LockIcon = ({ className }: { className: string }) => (
   <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
   </svg>
 );
 
+interface FormData {
+  accountType: string;
+  fullName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  agreeToTerms: boolean;
+}
+
 export default function SignUpForm() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     accountType: 'customer',
     fullName: '',
     email: '',
@@ -33,12 +41,13 @@ export default function SignUpForm() {
     agreeToTerms: false
   });
 
-  const handleChange = (field) => (e) => {
-    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+  const handleChange = (field: keyof FormData) => (e: Event) => {
+    const target = e.target as HTMLInputElement;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     setFormData({ ...formData, [field]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: Event) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     // Add your form submission logic here
@@ -48,7 +57,7 @@ export default function SignUpForm() {
     <form onSubmit={handleSubmit} className="bg-white rounded-xl p-6 shadow-sm">
       <AccountTypeSelector 
         selectedType={formData.accountType}
-        onSelect={(type) => setFormData({ ...formData, accountType: type })}
+        onSelect={(type: string) => setFormData({ ...formData, accountType: type })}
       />
 
       <Input
@@ -112,7 +121,7 @@ export default function SignUpForm() {
         </label>
       </div>
 
-      <Button type="submit" fullWidth>
+      <Button type="submit" fullWidth onClick={() => {}}>
         Create Account →
       </Button>
 

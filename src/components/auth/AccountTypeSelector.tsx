@@ -1,5 +1,7 @@
-// src/components/auth/AccountTypeSelector.jsx
-import { useState } from 'preact/hooks';
+interface AccountTypeSelectorProps {
+  selectedType: string;
+  onSelect: (type: string) => void;
+}
 
 const accountTypes = [
   {
@@ -46,7 +48,7 @@ const accountTypes = [
   }
 ];
 
-export default function AccountTypeSelector({ selectedType, onSelect }) {
+export default function AccountTypeSelector({ selectedType, onSelect }: AccountTypeSelectorProps) {
   return (
     <div className="mb-6">
       <label className="block text-sm font-medium text-gray-700 mb-3">

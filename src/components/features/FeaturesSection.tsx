@@ -1,4 +1,4 @@
-// src/components/features/FeaturesSection.jsx
+// src/components/features/FeaturesSection.tsx
 const features = [
   {
     title: 'AI-Powered Diagnostics',

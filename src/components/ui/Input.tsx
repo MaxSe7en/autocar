@@ -1,4 +1,15 @@
-// src/components/ui/Input.jsx
+import type { JSX } from 'preact';
+
+interface InputProps {
+  label?: string;
+  type?: string;
+  placeholder?: string;
+  icon?: (props: { className: string }) => JSX.Element;
+  value: string;
+  onChange: (e: Event) => void;
+  required?: boolean;
+}
+
 export default function Input({ 
   label, 
   type = "text", 
@@ -7,7 +18,7 @@ export default function Input({
   value,
   onChange,
   required = false 
-}) {
+}: InputProps) {
   return (
     <div className="mb-4">
       {label && (

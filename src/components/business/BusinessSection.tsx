@@ -1,4 +1,4 @@
-// src/components/business/BusinessSection.jsx
+// src/components/business/BusinessSection.tsx
 const businesses = [
   {
     title: 'Auto Shops',

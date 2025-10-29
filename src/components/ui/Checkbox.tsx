@@ -1,4 +1,11 @@
-export default function Checkbox({ label, ...props }) {
+import type { JSX } from 'preact';
+
+
+type CheckboxProps = JSX.IntrinsicElements['input'] & {
+  label: string;
+};
+
+export default function Checkbox({ label, ...props }: CheckboxProps) {
   return (
     <label className="flex items-center space-x-3">
       <input

@@ -1,8 +1,8 @@
 import { useState } from 'preact/hooks'
-import preactLogo from './assets/preact.svg'
-import viteLogo from '/vite.svg'
+// import preactLogo from './assets/preact.svg'
+// import viteLogo from '/vite.svg'
 import './app.css'
-// src/App.jsx
+// src/App.tsx
 import Header from './components/layout/Header';
 import FeaturesSection from './components/features/FeaturesSection';
 import BusinessSection from './components/business/BusinessSection';

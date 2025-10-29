@@ -6,4 +6,5 @@ import tailwindcss from "@tailwindcss/vite";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [preact(), tailwindcss(),],
+   base: '/autocar/', // This is crucial for GitHub Pages!
 })

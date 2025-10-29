@@ -1,4 +1,4 @@
-// src/components/layout/Header.jsx
+// src/components/layout/Header.tsx
 export default function Header() {
   return (
     <header className="text-center py-8 px-4">
