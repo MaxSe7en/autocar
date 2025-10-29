@@ -1,0 +1,25 @@
+{
+  "name": "autocar",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "preact": "^10.27.2"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.10.2",
+    "@tailwindcss/vite": "^4.1.16",
+    "@types/node": "^24.6.0",
+    "autoprefixer": "^10.4.21",
+    "install": "^0.13.0",
+    "npm": "^11.6.2",
+    "tailwindcss": "^4.1.16",
+    "typescript": "~5.9.3",
+    "vite": "^7.1.7"
+  }
+}
